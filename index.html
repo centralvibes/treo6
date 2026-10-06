@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Central</title>
+  
+  <!-- Script Iklan Baru -->
+  <script data-cfasync="false" async type="text/javascript" src="//fm.alogiansear.com/s1omJAMiRmc5/155995"></script>
+
+  <!-- Mengimpor Font Google (Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      background-color: #0f172a;
+    }
+
+    .video-card {
+      width: 100%;
+      max-width: 600px;
+      border: 2px solid #1e293b;
+      border-radius: 12px;
+      background-color: #1e293b;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* === HEADER SECTION === */
+    .header-section {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      border-bottom: 2px solid #334155;
+    }
+
+    .header-section h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b, #ffb347);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(255, 65, 108, 0.3);
+      margin-bottom: 8px;
+    }
+
+    .header-section p {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #38bdf8;
+      line-height: 1.5;
+      background: rgba(56, 189, 248, 0.08);
+      padding: 8px 14px;
+      border-radius: 6px;
+      display: inline-block;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    /* === VIDEO PLAYER & CUSTOM PLAY BUTTON === */
+    .player-section {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* Rasio 16:9 */
+      background-color: #000;
+      border-bottom: 2px solid #334155;
+    }
+
+    .player-section video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Tombol Play Custom di Tengah Video */
+    .custom-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 65, 108, 0.9);
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
+      transition: transform 0.2s ease, background 0.2s ease, opacity 0.3s ease;
+    }
+
+    .custom-play-btn:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: rgba(255, 75, 43, 1);
+    }
+
+    /* Segitiga Simbol Play */
+    .custom-play-btn::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 20px solid #ffffff;
+      margin-left: 4px;
+    }
+
+    /* Kelas untuk menyembunyikan tombol saat video berjalan */
+    .custom-play-btn.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* === IKLAN NATIVE BANNER BAWAH === */
+    .ad-section {
+      padding: 15px;
+      text-align: center;
+      background-color: #0f172a;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid #334155;
+      color: #94a3b8;
+      font-weight: 600;
+      gap: 10px;
+    }
+
+    /* === MORE VIDEOS BUTTON === */
+    .more-videos-section {
+      padding: 15px;
+      text-align: center;
+      background-color: #1e293b;
+    }
+
+    .btn-more-videos {
+      display: inline-block;
+      width: 100%;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #1877f2, #166fe5);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-more-videos:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(24, 119, 242, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-card">
+    <!-- Header -->
+    <div class="header-section">
+      <h1>🔥Vibe Central</h1>
+      <p>✨Viral videos, trending moments, and daily entertainment. Stay tuned and catch the latest vibes at Vibes Central! 🎬🔥</p>
+    </div>
+
+    <!-- Video Player dengan Thumbnail -->
+    <div class="player-section">
+      <!-- GANTI 'URL_GAMBAR_THUMBNAIL_ANDA.jpg' DI BAWAH DENGAN LINK GAMBAR THUMBNAIL ANDA -->
+      <video id="myVideo" controls poster="https://cdn.aceimg.com/NcXrSloyB.png">
+        <source src="https://cdn.videy.co/y5FiYEwE1.mp4" type="video/mp4">
+        Browser Anda tidak mendukung pemutar video HTML5.
+      </video>
+
+      <!-- Tombol Play Tengah -->
+      <div class="custom-play-btn" id="playBtn"></div>
+    </div>
+
+    <!-- Iklan Native Banner Bawah -->
+    <div class="ad-section">
+      <script data-cfasync="false" async type="text/javascript" src="//oc.trifledloto.com/tpFZBYBG4krcxye4/155934"></script>
+    </div>
+
+    <!-- Tombol More Videos -->
+    <div class="more-videos-section">
+      <a href="https://www.facebook.com/groups/1552108599214915/" target="_blank" rel="noopener noreferrer" class="btn-more-videos">MORE VIDEOS</a>
+    </div>
+  </div>
+
+  <!-- JavaScript Logika Tombol Play/Pause -->
+  <script>
+    const video = document.getElementById('myVideo');
+    const playBtn = document.getElementById('playBtn');
+
+    function togglePlay() {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+
+    playBtn.addEventListener('click', togglePlay);
+
+    video.addEventListener('play', () => {
+      playBtn.classList.add('hidden');
+    });
+
+    video.addEventListener('pause', () => {
+      playBtn.classList.remove('hidden');
+    });
+
+    video.addEventListener('ended', () => {
+      playBtn.classList.remove('hidden');
+    });
+  </script>
+
+  <!-- Histats.com START (async) -->
+  <script type="text/javascript">var _Hasync= _Hasync|| [];
+  _Hasync.push(['Histats.start', '1,5054566,4,511,95,18,00000000']);
+  _Hasync.push(['Histats.fasi', '1']);
+  _Hasync.push(['Histats.track_hits', '']);
+  (function() {
+  var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+  hs.src = ('//s10.histats.com/js15_as.js');
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+  })();</script>
+  <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5054566&101" alt="" border="0"></a></noscript>
+  <!-- Histats.com END -->
+
+</body>
+</html>
